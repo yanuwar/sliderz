@@ -1,9 +1,10 @@
-package com.skyshi.slider.sliderer
+package com.skyshi.slider.sliderz.adapter
 
-import android.view.ViewGroup
 import android.support.v4.view.ViewPager
+import android.view.ViewGroup
+import android.widget.TextView
+import com.skyshi.slider.sliderz.R
 import com.skyshi.slider.sliderz.base.SliderAdapter
-import kotlinx.android.synthetic.main.item_tes.view.*
 
 class ExampleAdapter(val listData: MutableList<String>) : SliderAdapter<String>(listData) {
     override fun getItemResourceLayout(): Int = R.layout.item_tes
@@ -11,7 +12,9 @@ class ExampleAdapter(val listData: MutableList<String>) : SliderAdapter<String>(
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = getView(container)
 
-        view.tv_testo.text = listData[position]
+        val textView = view.findViewById<TextView>(R.id.tv_testo)
+
+        textView.text = listData[position]
 
         val viewPager = container as ViewPager
         viewPager.addView(view, 0)

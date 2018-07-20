@@ -1,5 +1,6 @@
 package com.skyshi.slider.sliderz.base
 
+import android.content.Context
 import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,11 @@ abstract class SliderAdapter<T> (private var data: MutableList<T>): PagerAdapter
         return super.getItemPosition(`object`)
     }
 
-    fun getView(parent: ViewGroup): View = LayoutInflater.from(parent.context).inflate(getItemResourceLayout(), parent, false)
+    fun getView(parent: ViewGroup): View {
+        val inflater = parent.getContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        return inflater.inflate(getItemResourceLayout(), null)
+    }
 
     fun getData(): List<T> = data
 
