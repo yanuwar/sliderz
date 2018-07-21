@@ -11,12 +11,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        listData.add("cihuy1")
-//        listData.add("cihuy2")
-//        listData.add("cihuy3")
-//        listData.add("cihuy4")
-//        view_pager.adapter = ExampleAdapter(listData)
-//        val tes = indicator
-//        indicator.setupWithViewPager(view_pager, true)
+        listData.add("cihuy1")
+        listData.add("cihuy2")
+        listData.add("cihuy3")
+        listData.add("cihuy5")
+        sliderer.setAdapter(ExampleAdapter(listData))
+
     }
 }

@@ -1,28 +1,33 @@
 package com.skyshi.slider.sliderz.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.skyshi.slider.sliderz.R
-import com.skyshi.slider.sliderz.adapter.ExampleAdapter
 import android.support.design.widget.TabLayout
+import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
+import android.view.View
 
-
-val listData: MutableList<String> = arrayListOf()
+@SuppressLint("StaticFieldLeak")
+lateinit var view_pager: ViewPager
+@SuppressLint("StaticFieldLeak")
+lateinit var indicator: TabLayout
+@SuppressLint("StaticFieldLeak")
+lateinit var view: View
 
 class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(context, attributeSet) {
     init {
-        listData.add("cihuy1")
-        listData.add("cihuy2")
-        listData.add("cihuy3")
-        listData.add("cihuy4")
         //Inflate view
-        val view = LayoutInflater.from(getContext()).inflate(R.layout.slide_parent, this, true)
-        val view_pager = view.findViewById<ViewPager>(R.id.view_pager)
-        view_pager.adapter = ExampleAdapter(listData)
-        val indicator = view.findViewById<TabLayout>(R.id.indicator)
-        indicator.setupWithViewPager(view_pager, true)
+        view = LayoutInflater.from(getContext()).inflate(R.layout.slide_parent, this, true)
+        view_pager = view.findViewById(R.id.view_pager)
+        indicator = view.findViewById(R.id.indicator_bottom)
+        indicator.setupWithViewPager(view_pager, false)
+    }
+
+    fun setAdapter(adapter: PagerAdapter) {
+        view_pager.adapter = adapter
     }
 }
