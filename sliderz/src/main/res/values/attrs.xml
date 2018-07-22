@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Sliderz">
+        <attr name="bottom_indicator_visibility" format="boolean"/>
+    </declare-styleable>
+</resources>

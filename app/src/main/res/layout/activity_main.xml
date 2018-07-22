@@ -7,9 +7,10 @@
     tools:context=".MainActivity">
 
     <com.skyshi.slider.sliderz.ui.Sliderz
-    android:id="@+id/sliderer"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"/>
+        android:id="@+id/sliderer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:bottom_indicator_visibility="true" />
 
     <!--<android.support.v4.view.ViewPager-->
         <!--android:id="@+id/view_pager"-->
@@ -34,7 +35,7 @@
 
     <!--<android.support.design.widget.TabLayout-->
         <!--android:id="@+id/indicator_bottom"-->
-        <!--android:layout_width="match_parent"-->
+        <!--android:layout_width="200dp"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_alignParentBottom="true"-->
         <!--android:layout_centerInParent="true"-->
@@ -46,7 +47,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:text="tes"
-        app:layout_constraintTop_toBottomOf="@+id/sliderer" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
