@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true">
+    <item android:state_enabled="false">
         <shape
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thickness="4dp"
+            android:thickness="@dimen/thickness_active"
             android:useLevel="false">
             <solid android:color="@color/selectedIndicator"/>
         </shape>
@@ -13,7 +13,7 @@
         <shape
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thickness="3dp"
+            android:thickness="@dimen/thickness_inactive"
             android:useLevel="false">
             <solid android:color="@color/defaultIndicator" />
         </shape>

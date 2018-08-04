@@ -19,9 +19,7 @@ class MainActivity : AppCompatActivity() {
         listData.add("cihuy5")
         val adapter = ExampleAdapter(listData)
         sliderer.setAdapter(adapter)
-        sliderer.setVisibilityBottomIndicator(false)
         sliderer.isAutoSlide(true)
         sliderer.setVisibilityNextBeforeIndicator(true)
-        sliderer.setVisibilityInsideIndicator(true)
     }
 }

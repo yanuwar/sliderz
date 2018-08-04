@@ -9,43 +9,12 @@
     <com.skyshi.slider.sliderz.ui.Sliderz
         android:id="@+id/sliderer"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:bottom_indicator_visibility="true"
+        android:layout_height="0dp"
+        app:indicator_visibility="inside"
         app:delay="5000"
+        app:next_before_indicator_visibility="true"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <!--<android.support.v4.view.ViewPager-->
-        <!--android:id="@+id/view_pager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/indicator_bottom" />-->
-
-    <!--<android.support.design.widget.TabLayout-->
-        <!--android:id="@+id/indicator"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/view_pager"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/view_pager"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/view_pager"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/view_pager"-->
-        <!--app:layout_constraintVertical_bias="1.0"-->
-        <!--app:tabBackground="@drawable/indicator_selector"-->
-        <!--app:tabGravity="center"-->
-        <!--app:tabIndicatorHeight="0dp" />-->
-
-    <!--<android.support.design.widget.TabLayout-->
-        <!--android:id="@+id/indicator_bottom"-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--app:tabBackground="@drawable/indicator_selector"-->
-        <!--app:tabGravity="center"-->
-        <!--app:tabIndicatorHeight="0dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
 
     <TextView
         android:id="@+id/textView6"

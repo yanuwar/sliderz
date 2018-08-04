@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Sliderz">
-        <attr name="bottom_indicator_visibility" format="boolean"/>
-        <attr name="inside_indicator_visibility" format="boolean"/>
         <attr name="next_before_indicator_visibility" format="boolean"/>
         <attr name="is_autoslide" format="boolean"/>
         <attr name="delay" format="integer"/>
+        <attr name="indicator_visibility">
+            <enum name="default_indicator" value="0"/>
+            <enum name="bottom" value="1"/>
+            <enum name="inside" value="2"/>
+        </attr>
     </declare-styleable>
 </resources>
