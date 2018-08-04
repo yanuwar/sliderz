@@ -2,6 +2,8 @@
 <resources>
     <declare-styleable name="Sliderz">
         <attr name="bottom_indicator_visibility" format="boolean"/>
+        <attr name="inside_indicator_visibility" format="boolean"/>
+        <attr name="next_before_indicator_visibility" format="boolean"/>
         <attr name="is_autoslide" format="boolean"/>
         <attr name="delay" format="integer"/>
     </declare-styleable>

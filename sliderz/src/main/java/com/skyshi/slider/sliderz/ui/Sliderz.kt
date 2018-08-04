@@ -58,12 +58,23 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
 
     private fun initViewStyle(a: TypedArray?) {
         setVisibilityBottomIndicator(a!!.getBoolean(R.styleable.Sliderz_bottom_indicator_visibility, false))
+        setVisibilityInsideIndicator(a.getBoolean(R.styleable.Sliderz_inside_indicator_visibility, false))
+        setVisibilityNextBeforeIndicator(a.getBoolean(R.styleable.Sliderz_next_before_indicator_visibility, false))
         delay = a.getInteger(R.styleable.Sliderz_delay, delay.toInt()).toLong()
         isAutoSlide (a.getBoolean(R.styleable.Sliderz_is_autoslide, false))
     }
 
     fun setVisibilityBottomIndicator(show: Boolean) {
-        if (show) indicator.visibility = View.VISIBLE else indicator.visibility = View.INVISIBLE
+        if (show) indicator.visibility = View.VISIBLE else indicator.visibility = View.GONE
+    }
+
+    fun setVisibilityInsideIndicator(show: Boolean) {
+        if (show) indicatorInside.visibility = View.VISIBLE else indicatorInside.visibility = View.GONE
+    }
+
+    fun setVisibilityNextBeforeIndicator(show: Boolean) {
+        if (show) leftArrow.visibility = View.VISIBLE else leftArrow.visibility = View.GONE
+        if (show) rightArrow.visibility = View.VISIBLE else rightArrow.visibility = View.GONE
     }
 
     fun isAutoSlide (auto: Boolean) {
