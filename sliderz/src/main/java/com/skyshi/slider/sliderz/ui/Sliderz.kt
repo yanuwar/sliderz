@@ -11,14 +11,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.content.res.TypedArray
 import android.os.AsyncTask
+import android.widget.ImageView
 import java.util.*
 
 
 lateinit var view_pager: ViewPager
 lateinit var indicator: TabLayout
+lateinit var indicatorInside: TabLayout
 lateinit var view: View
+lateinit var leftArrow: ImageView
+lateinit var rightArrow: ImageView
 lateinit var contextSlider: Context
 lateinit var adapterSlider: PagerAdapter
+var delay: Long = 1000
 
 class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(context, attributeSet) {
     init {
@@ -30,7 +35,18 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
         view = LayoutInflater.from(getContext()).inflate(R.layout.slide_parent, this, true)
         view_pager = view.findViewById(R.id.view_pager)
         indicator = view.findViewById(R.id.indicator_bottom)
+        indicatorInside = view.findViewById(R.id.indicator_inside)
+        leftArrow = view.findViewById(R.id.left_arrow)
+        rightArrow = view.findViewById(R.id.right_arrow)
+
         indicator.setupWithViewPager(view_pager, false)
+        indicatorInside.setupWithViewPager(view_pager, false)
+        leftArrow.setOnClickListener {
+            if (view_pager.currentItem-1 > -1) view_pager.currentItem = view_pager.currentItem-1 else view_pager.currentItem = adapterSlider.count-1
+        }
+        rightArrow.setOnClickListener {
+            if (view_pager.currentItem+1 < adapterSlider.count) view_pager.currentItem = view_pager.currentItem+1 else view_pager.currentItem = 0
+        }
 
         initViewStyle(a)
     }
@@ -42,7 +58,8 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
 
     private fun initViewStyle(a: TypedArray?) {
         setVisibilityBottomIndicator(a!!.getBoolean(R.styleable.Sliderz_bottom_indicator_visibility, false))
-        isAutoSlide (true)
+        delay = a.getInteger(R.styleable.Sliderz_delay, delay.toInt()).toLong()
+        isAutoSlide (a.getBoolean(R.styleable.Sliderz_is_autoslide, false))
     }
 
     fun setVisibilityBottomIndicator(show: Boolean) {
@@ -52,7 +69,7 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
     fun isAutoSlide (auto: Boolean) {
         if (auto) {
             val timer = Timer()
-            timer.scheduleAtFixedRate(SliderTimer(), 4000, 6000)
+            timer.scheduleAtFixedRate(SliderTimer(), delay, delay)
         }
     }
 

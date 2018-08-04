@@ -1,21 +1,26 @@
 package com.skyshi.slider.sliderer
 
 import android.view.ViewGroup
-import android.support.v4.view.ViewPager
+import android.view.View
 import com.skyshi.slider.sliderz.base.SliderAdapter
 import kotlinx.android.synthetic.main.item_tes.view.*
 
-class ExampleAdapter(val listData: MutableList<String>) : SliderAdapter<String>(listData) {
+class ExampleAdapter(private val listData: MutableList<String>) : SliderAdapter<String, ExampleAdapter.FooViewHolder>(listData){
+    override fun onCreateViewHolder(parent: ViewGroup): FooViewHolder {
+        return FooViewHolder(getView(parent))
+    }
+
+    override fun onBindViewHolder(viewHolder: FooViewHolder, position: Int) {
+        viewHolder.show(listData[position])
+    }
+
     override fun getItemResourceLayout(): Int = R.layout.item_tes
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = getView(container)
+    class FooViewHolder(val v: View)
+        : SliderAdapter.ViewHolder(v) {
 
-        view.tv_testo.text = listData[position]
-
-        val viewPager = container as ViewPager
-        viewPager.addView(view, 0)
-
-        return view
+        fun show(value: String) {
+            v.tv_testo.text=value
+        }
     }
 }

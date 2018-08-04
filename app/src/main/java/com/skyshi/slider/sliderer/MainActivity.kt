@@ -2,6 +2,8 @@ package com.skyshi.slider.sliderer
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +17,9 @@ class MainActivity : AppCompatActivity() {
         listData.add("cihuy2")
         listData.add("cihuy3")
         listData.add("cihuy5")
-        sliderer.setAdapter(ExampleAdapter(listData))
-
+        val adapter = ExampleAdapter(listData)
+        sliderer.setAdapter(adapter)
+        sliderer.setVisibilityBottomIndicator(true)
+        sliderer.isAutoSlide(true)
     }
 }
