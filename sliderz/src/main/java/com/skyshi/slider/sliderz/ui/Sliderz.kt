@@ -25,6 +25,7 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
     private var indicatorBottomVisibility = false
     private var indicatorInsideVisibility = false
     lateinit var adapterSlider: PagerAdapter
+    private val timer = Timer()
 
     init {
         val a = context!!.theme?.obtainStyledAttributes(
@@ -35,6 +36,12 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
         viewPager = view.findViewById(R.id.view_pager)
 
         initViewStyle(a)
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        timer.cancel()
+        timer.purge()
     }
 
     fun setAdapter(adapter: PagerAdapter) {
@@ -83,7 +90,6 @@ class Sliderz(context: Context?, attributeSet: AttributeSet?) : LinearLayout(con
 
     fun isAutoSlide (auto: Boolean) {
         if (auto) {
-            val timer = Timer()
             timer.scheduleAtFixedRate(SliderTimer(), delay, delay)
         }
     }
